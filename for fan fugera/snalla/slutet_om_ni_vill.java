@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-
+	
 public class slutet_om_ni_vill {
 	static String word = "";
 	static String guess = "";
@@ -12,7 +12,10 @@ public class slutet_om_ni_vill {
 	static ArrayList<String> incorrectGuesses = new ArrayList<>();
 	static ArrayList<String> wordList = new ArrayList<String>();
 	static ArrayList<String> theMan = new ArrayList<String>();
-	
+	/**
+	 * huvudflöde
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		sayWelcome();
 		printInstructions();
@@ -21,7 +24,9 @@ public class slutet_om_ni_vill {
 		playGame();
 		sayGoodBye();
 	}
-
+	/**
+	 * gubben
+	 */
 	private static void initTheMan() {
 		
 		theMan.add("  +---+\r\n" + "  |   |\r\n" + "      |\r\n" + "      |\r\n" + "      |\r\n" + "      |");
@@ -33,7 +38,9 @@ public class slutet_om_ni_vill {
 		theMan.add("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|\\  |\r\n" + " / \\  |\r\n" + "      |");
 		
 	}
-
+	/**
+	 * ord
+	 */
 	private static void initwordList() {
 		wordList.add("appa");
 		wordList.add("barn");
@@ -46,11 +53,15 @@ public class slutet_om_ni_vill {
 		wordList.add("biografi");
 		
 	}
-
+	/**
+	 * hejdå
+	 */
 	private static void sayGoodBye() {
 			System.out.println("hej då vi ses aldrig igen.");
 	}
-
+	/**
+	 * spel lopen
+	 */
 	private static void playGame() {
 		do {
 			setUpGame();
@@ -63,14 +74,19 @@ public class slutet_om_ni_vill {
 			}
 		} while (true);
 	}
-
+	/**
+	 * nålsteler
+	 */
 	private static void setUpGame() {
 		randomizeWord();
 		guess = "";
 		progression = initprogresion();
 
 	}
-
+	/**
+	 * ordetslängd
+	 * @return
+	 */
 	private static String initprogresion() {
 		char[] returnValue = new char[word.length()];
 		
@@ -80,7 +96,9 @@ public class slutet_om_ni_vill {
 		
 		return new String(returnValue);
 	}
-
+	/**
+	 * Gisningar
+	 */
 	private static void makeGuesses() {
 		for (int i = 0; i < 6; i++) {
 			System.out.println("gissa på en bokstav");
@@ -100,7 +118,9 @@ public class slutet_om_ni_vill {
 		System.out.println(theMan.get(6));
 		System.out.println("wala bror du är dum i huvet!! hur kan man vara så dålig.");
 	}
-
+	/**
+	 * gjort
+	 */
 	private static void printProgression() {
 		char[] tempArray = progression.toCharArray();
 			
@@ -114,17 +134,23 @@ public class slutet_om_ni_vill {
 		System.out.println(progression);
 		
 		}
-
+	/**
+	 * väljer ord
+	 */
 	private static void randomizeWord() {
 			Random random = new Random();
 			int randomIndex = random.nextInt(wordList.size());
 			word = wordList.get(randomIndex);
 	}
-
+	/**
+	 * förklarin
+	 */
 	private static void printInstructions() {
 		System.out.println("Jag kommer vissa ett antal stjärnor och så många det är så många bokstäver är det i ordet. du kommer då få gissa bokstav för bokstav. så kommer jag säga till om den är med. gubben har 6 gånger på sig inan den hängs. Lycka till!");
 	}
-
+	/**
+	 * välkommnar
+	 */
 	private static void sayWelcome() {
 		System.out.println("hej och välkomen till hängagubben");
 	}
